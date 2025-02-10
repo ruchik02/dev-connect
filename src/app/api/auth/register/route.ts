@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 // import bcrypt from 'bcryptjs';
 // import { prisma } from '@/lib/prisma';
 
-export async function POST(req: Request) {
+export async function POST() {
   try {
-    const { name, email, password } = await req.json();
+    // const { name, email, password } = await req.json();
 
     // Mock successful registration response for frontend development
     return NextResponse.json(

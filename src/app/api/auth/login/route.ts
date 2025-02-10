@@ -6,7 +6,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    const { email, password } = await req.json();
+    const { email } = await req.json();
 
     // Mock successful login response for frontend development
     const mockUser = {
