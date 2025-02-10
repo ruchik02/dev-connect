@@ -10,7 +10,7 @@ export default function DashboardPage() {
             Welcome back, Developer!
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Here's what's happening in your developer community.
+            Here&apos;s what&apos;s happening in your developer community.
           </p>
         </div>
 
