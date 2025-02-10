@@ -1,11 +1,11 @@
 'use client';
 
-import { useAuth } from '@/hooks/useAuth';
+// import { useAuth } from '@/hooks/useAuth';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 export default function Home() {
-  const { loading } = useAuth();
+  // const { loading } = useAuth();
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">

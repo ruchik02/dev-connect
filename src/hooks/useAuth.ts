@@ -18,7 +18,7 @@ export function useAuth() {
   const [loading, setLoading] = useState(false);
 
   const login = async (data: LoginData) => {
-    try {
+    // try {
       setLoading(true);
       // Temporary mock login for frontend development
       console.log('Login data:', data);
@@ -32,15 +32,16 @@ export function useAuth() {
       router.push('/dashboard');
       router.refresh();
       */
-    } catch (error: any) {
-      toast.error('Login failed (Demo Mode)');
-    } finally {
-      setLoading(false);
-    }
+    // } 
+    // catch (error: any) {
+    //   toast.error('Login failed (Demo Mode)');
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   const register = async (data: RegisterData) => {
-    try {
+    // try {
       setLoading(true);
       // Temporary mock registration for frontend development
       console.log('Register data:', data);
@@ -53,11 +54,11 @@ export function useAuth() {
       toast.success('Account created successfully!');
       router.push('/auth/login');
       */
-    } catch (error: any) {
-      toast.error('Registration failed (Demo Mode)');
-    } finally {
-      setLoading(false);
-    }
+    // } catch (error: any) {
+    //   toast.error('Registration failed (Demo Mode)');
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return { login, register, loading };

@@ -14,9 +14,9 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 */
 
 // Temporary mock prisma client for frontend development
-export const prisma = {
-  user: {
-    findUnique: async () => null,
-    create: async () => ({}),
-  },
-} as any; 
+// export const prisma = {
+//   user: {
+//     findUnique: async () => null,
+//     create: async () => ({}),
+//   },
+// } as any; 
