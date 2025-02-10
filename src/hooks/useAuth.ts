@@ -1,6 +1,7 @@
+'use client';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 interface LoginData {
@@ -19,11 +20,20 @@ export function useAuth() {
   const login = async (data: LoginData) => {
     try {
       setLoading(true);
-      const response = await axios.post('/api/auth/login', data);
-      toast.success('Logged in successfully!');
+      // Temporary mock login for frontend development
+      console.log('Login data:', data);
+      toast.success('Welcome back! (Demo Mode)');
       router.push('/dashboard');
-    } catch (error) {
-      toast.error('Invalid credentials');
+      
+      // Commented backend integration for now
+      /*
+      const response = await axios.post('/api/auth/login', data);
+      toast.success('Welcome back!');
+      router.push('/dashboard');
+      router.refresh();
+      */
+    } catch (error: any) {
+      toast.error('Login failed (Demo Mode)');
     } finally {
       setLoading(false);
     }
@@ -32,11 +42,19 @@ export function useAuth() {
   const register = async (data: RegisterData) => {
     try {
       setLoading(true);
-      const response = await axios.post('/api/auth/register', data);
+      // Temporary mock registration for frontend development
+      console.log('Register data:', data);
+      toast.success('Account created successfully! (Demo Mode)');
+      router.push('/auth/login');
+      
+      // Commented backend integration for now
+      /*
+      await axios.post('/api/auth/register', data);
       toast.success('Account created successfully!');
       router.push('/auth/login');
-    } catch (error) {
-      toast.error('Registration failed');
+      */
+    } catch (error: any) {
+      toast.error('Registration failed (Demo Mode)');
     } finally {
       setLoading(false);
     }
