@@ -1,12 +1,40 @@
 import { NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import { prisma } from '@/lib/prisma';
+// Commenting out unused imports for now
+// import bcrypt from 'bcryptjs';
+// import jwt from 'jsonwebtoken';
+// import { prisma } from '@/lib/prisma';
 
 export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
 
+    // Mock successful login response for frontend development
+    const mockUser = {
+      id: '1',
+      name: 'Test User',
+      email: email
+    };
+
+    const response = NextResponse.json(
+      { 
+        message: 'Login successful (Demo Mode)',
+        user: mockUser
+      },
+      { status: 200 }
+    );
+
+    // Mock token
+    response.cookies.set('token', 'mock-token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+      path: '/',
+    });
+
+    return response;
+
+    /* Commenting out actual implementation for now
     // Validate input
     if (!email || !password) {
       return NextResponse.json(
@@ -70,6 +98,7 @@ export async function POST(req: Request) {
     });
 
     return response;
+    */
   } catch (error) {
     console.error('Login error:', error);
     return NextResponse.json(

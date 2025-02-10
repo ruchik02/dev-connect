@@ -1,11 +1,19 @@
 import { NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
-import { prisma } from '@/lib/prisma';
+// Commenting out unused imports for now
+// import bcrypt from 'bcryptjs';
+// import { prisma } from '@/lib/prisma';
 
 export async function POST(req: Request) {
   try {
     const { name, email, password } = await req.json();
 
+    // Mock successful registration response for frontend development
+    return NextResponse.json(
+      { message: 'Registration successful (Demo Mode)' },
+      { status: 201 }
+    );
+
+    /* Commenting out actual implementation for now
     // Validate input
     if (!name || !email || !password) {
       return NextResponse.json(
@@ -59,6 +67,7 @@ export async function POST(req: Request) {
       { message: 'Registration successful' },
       { status: 201 }
     );
+    */
   } catch (error) {
     console.error('Registration error:', error);
     return NextResponse.json(
