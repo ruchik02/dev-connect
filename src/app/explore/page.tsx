@@ -3,12 +3,21 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
+// Define proper types for the SafeImage component
+interface SafeImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  fill?: boolean;
+  width?: number;
+  height?: number;
+}
+
 // Fallback image URLs
 const FALLBACK_AVATAR = '/placeholder-avatar.png';
 const FALLBACK_PROJECT = '/placeholder-project.png';
 
-// Image component with fallback
-function SafeImage({ src, alt, className, ...props }: any) {
+function SafeImage({ src, alt, className = '', ...props }: SafeImageProps) {
   const [error, setError] = useState(false);
   const isFallbackAvatar = src.includes('avatar');
   
